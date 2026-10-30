@@ -7,10 +7,6 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'motion/react';
 import Home from './pages/Home';
-import Portfolio from './pages/Portfolio';
-import ProjectDetail from './pages/ProjectDetail';
-import { SecurityTools } from './pages/SecurityTools';
-import { DedicatedToolPage } from './pages/DedicatedToolPage';
 import HackerLoader from './components/HackerLoader';
 import { ModeProvider } from './context/ModeContext';
 
@@ -45,10 +41,7 @@ export default function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/tools" element={<SecurityTools />} />
-          <Route path="/tools/:id" element={<DedicatedToolPage />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/project/:id" element={<ProjectDetail />} />
+          <Route path="*" element={<Home />} />
         </Routes>
       </Router>
     </ModeProvider>

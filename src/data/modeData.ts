@@ -47,16 +47,6 @@ export interface ModeContent {
     tools: string[];
     highlight?: boolean;
   }[];
-  featuredProjects: {
-    id?: string;
-    title: string;
-    category: string;
-    description: string;
-    image: string;
-    tags: string[];
-    findings: string[];
-    severity: 'Critical' | 'High' | 'Medium';
-  }[];
 }
 
 export const modeDataMap: Record<OffensiveMode, ModeContent> = {
@@ -117,38 +107,6 @@ export const modeDataMap: Record<OffensiveMode, ModeContent> = {
       { category: 'Network & Packet Inspection', tools: ['Nmap', 'Wireshark', 'Metasploit', 'Netcat', 'TCPDump'] },
       { category: 'Environments & Scripting', tools: ['Kali Linux', 'Parrot OS', 'Python', 'Bash', 'Git'] },
       { category: 'Security Frameworks', tools: ['OWASP Top 10', 'CVSS 3.1', 'NIST CSF', 'MITRE ATT&CK'] },
-    ],
-    featuredProjects: [
-      {
-        id: 'domain-dossier',
-        title: 'Domain Dossier (CentralOps Style)',
-        category: 'Network Reconnaissance',
-        description: 'Comprehensive domain and IP intelligence: WHOIS registration, DNS zone records, network traceroute hops, and active TCP port service inspection.',
-        image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800',
-        tags: ['Domain Dossier', 'CentralOps', 'Whois', 'DNS Records', 'Traceroute', 'Port Scan'],
-        findings: ['Authoritative DNS zone records resolution', 'Real-time traceroute route calculation'],
-        severity: 'High',
-      },
-      {
-        id: 'password-checker',
-        title: 'Password Strength & Pattern Analyzer',
-        category: 'Authentication Security',
-        description: 'Cryptographic Shannon entropy evaluator, dictionary phrase pattern detection, and keyboard walk sequence analyzer.',
-        image: 'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&q=80&w=800',
-        tags: ['Password Strength', 'Entropy', 'Pattern Detection', 'NIST Standards', 'MFA'],
-        findings: ['Brute-force crack resistance analysis', 'Detects predictable keyboard walk sequences'],
-        severity: 'High',
-      },
-      {
-        id: 'web-vuln-nikto',
-        title: 'Web Vulnerability Identifier (Nikto Scanner)',
-        category: 'Web Application VAPT',
-        description: 'Automated Nikto-style web vulnerability scanning with real-time terminal log stream, progress bar, and remediation guidance.',
-        image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=800',
-        tags: ['Nikto Scanner', 'Web Vulnerability', 'Information Leak', 'OWASP Top 10', 'Terminal Log'],
-        findings: ['Exposed sensitive git repositories and env files probe', 'Security headers posture inspection'],
-        severity: 'Critical',
-      },
     ],
   },
 
@@ -212,38 +170,6 @@ export const modeDataMap: Record<OffensiveMode, ModeContent> = {
       { category: 'API Security & Analysis', tools: ['Postman', 'Arjun', 'Kiterunner', 'Swagger UI Parser'] },
       { category: 'Injection & Exploits', tools: ['SQLMap', 'Commix', 'XSS Hunter', 'Tplmap (SSTI)'] },
     ],
-    featuredProjects: [
-      {
-        id: 'web-vuln-nikto',
-        title: 'Web Vulnerability Identifier (Nikto Scanner)',
-        category: 'Web Application VAPT',
-        description: 'Live Nikto vulnerability scanning with progress bar, log stream, and actionable mitigations.',
-        image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=800',
-        tags: ['Nikto Scanner', 'Web Vulnerability', 'Information Leak', 'OWASP Top 10', 'Terminal Log'],
-        findings: ['Uncovers sensitive git/env files and outdated server software', 'Audits anti-clickjacking headers'],
-        severity: 'Critical',
-      },
-      {
-        id: 'website-safety',
-        title: 'Website Safety Checker',
-        category: 'Web Application Hygiene',
-        description: 'Performs live SSL/TLS certificate validity checks, HTTPS redirection audit, and security header evaluation.',
-        image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800',
-        tags: ['Website Safety', 'SSL Certificate', 'HTTPS Enforcement', 'Security Headers', 'Phishing Check'],
-        findings: ['Verifies certificate validity and expiration dates', 'Checks automatic 301 redirection to HTTPS'],
-        severity: 'High',
-      },
-      {
-        id: 'password-checker',
-        title: 'Password Strength & Pattern Analyzer',
-        category: 'Authentication Security',
-        description: 'Evaluates password entropy, common dictionary sequences, and keyboard walk patterns.',
-        image: 'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&q=80&w=800',
-        tags: ['Password Strength', 'Entropy', 'Pattern Detection', 'NIST Standards', 'MFA'],
-        findings: ['Calculates cryptographic entropy bits', 'Flags predictable substitution patterns'],
-        severity: 'High',
-      },
-    ],
   },
 
   network: {
@@ -305,38 +231,6 @@ export const modeDataMap: Record<OffensiveMode, ModeContent> = {
       { category: 'Exploitation Frameworks', tools: ['Metasploit Framework', 'Searchsploit', 'CrackMapExec', 'Responder'], highlight: true },
       { category: 'Privilege Escalation', tools: ['LinPEAS', 'WinPEAS', 'GTFOBins', 'BloodHound', 'Mimikatz'] },
       { category: 'Credential Auditing', tools: ['John the Ripper', 'Hashcat', 'Hydra', 'Medusa'] },
-    ],
-    featuredProjects: [
-      {
-        id: 'domain-dossier',
-        title: 'Domain Dossier (CentralOps Style)',
-        category: 'Network Reconnaissance',
-        description: 'Comprehensive domain and IP intelligence with whois, DNS zone records, and traceroute.',
-        image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800',
-        tags: ['Domain Dossier', 'CentralOps', 'Whois', 'DNS Records', 'Traceroute', 'Port Scan'],
-        findings: ['Deep WHOIS and DNS zone resolution', 'Network traceroute hops analysis'],
-        severity: 'High',
-      },
-      {
-        id: 'ip-domain-validator',
-        title: 'IP / Domain Validator',
-        category: 'Input Verification & Networking',
-        description: 'Detect and validate IPv4, IPv6, Domain FQDN, or URL inputs with RFC compliance specifications.',
-        image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=800',
-        tags: ['IP Validator', 'IPv4 / IPv6', 'Domain FQDN', 'URL Parser', 'RFC Standards'],
-        findings: ['RFC 1918 private vs public scope detection', 'IPv6 hextet format validation'],
-        severity: 'Medium',
-      },
-      {
-        id: 'my-ip',
-        title: 'IP Address Checker ("What Is My IP?")',
-        category: 'Identity & Geo Reconnaissance',
-        description: 'Live public IP lookup with ISP provider, Autonomous System (ASN), reverse DNS, and geolocation.',
-        image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800',
-        tags: ['My IP', 'Public IP', 'ISP Info', 'ASN Lookup', 'Reverse DNS', 'GeoIP'],
-        findings: ['Resolves public IP address and ISP', 'Calculates location and ASN details'],
-        severity: 'Medium',
-      },
     ],
   },
 };

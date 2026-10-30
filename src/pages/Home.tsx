@@ -3,21 +3,17 @@ import { motion, AnimatePresence } from 'motion/react';
 import { 
   Shield, 
   ChevronRight, 
-  ExternalLink, 
   Zap, 
   Sparkles,
   FileText
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import SectionHeading from '../components/SectionHeading';
-import ProjectCard from '../components/ProjectCard';
 import CertificateCard from '../components/CertificateCard';
 import CertificateModal from '../components/CertificateModal';
 import { useOffensiveMode } from '../context/ModeContext';
 import { modeDataMap } from '../data/modeData';
 import { certificatesList, CertificateItem } from '../data/certificatesData';
-import { allProjects } from '../data/projectsData';
 
 interface ServiceCardProps {
   icon: any;
@@ -175,11 +171,12 @@ const Home = () => {
               </p>
 
               <div className="flex flex-wrap items-center gap-4">
-                <Link to="/portfolio">
-                  <button className={`px-8 py-4 font-bold rounded-xl transition-all duration-300 flex items-center gap-2 cursor-pointer ${currentMode.btnPrimaryClass}`}>
-                    View Portfolio <ChevronRight size={20} />
-                  </button>
-                </Link>
+                <a 
+                  href="#certifications"
+                  className={`px-8 py-4 font-bold rounded-xl transition-all duration-300 flex items-center gap-2 cursor-pointer ${currentMode.btnPrimaryClass}`}
+                >
+                  View Certifications <ChevronRight size={20} />
+                </a>
                 <a 
                   href="/Harshit_Negi_Cybersecurity_Resume.pdf"
                   download="Harshit_Negi_Cybersecurity_Resume.pdf"
@@ -387,59 +384,23 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Featured Projects Section */}
-        <section id="projects" className="py-20">
-          <div className="container mx-auto px-6">
-            <div className="flex justify-between items-end mb-16">
-              <SectionHeading 
-                title="Security Tools & Operations" 
-                subtitle="Projects" 
-                accent={mode === 'web' ? 'blue' : mode === 'network' ? 'red' : 'green'} 
-              />
-              <Link to="/portfolio" className="hidden md:flex items-center gap-2 font-bold hover:underline mb-12 text-sm text-gray-300 hover:text-white">
-                View All Projects <ExternalLink size={16} />
-              </Link>
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {allProjects.map((proj) => (
-                <ProjectCard 
-                  key={proj.id}
-                  id={proj.id}
-                  title={proj.title}
-                  category={proj.category}
-                  image={proj.image}
-                  tags={proj.tags}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Accredited Certifications Section */}
         <section id="certifications" className="py-20 border-t border-white/5 bg-black/20">
           <div className="container mx-auto px-6">
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-              <div>
-                <SectionHeading 
-                  title="Accredited Certifications" 
-                  subtitle="Industry Credentials" 
-                  accent={mode === 'web' ? 'blue' : mode === 'network' ? 'red' : 'green'} 
-                />
-                <p className="text-gray-400 max-w-2xl text-sm md:text-base mt-2">
-                  Recognized cybersecurity certifications covering Ethical Hacking, Penetration Testing, OSINT, and Network Defense.
-                </p>
-              </div>
-              <Link 
-                to="/portfolio" 
-                className="inline-flex items-center gap-2 font-mono text-xs md:text-sm text-gray-300 hover:text-white transition-colors bg-white/5 hover:bg-white/10 px-4 py-2 rounded-xl border border-white/10 w-fit"
-              >
-                View Full Archive ({certificatesList.length}) <ExternalLink size={15} />
-              </Link>
+            <div className="text-center mb-16">
+              <SectionHeading 
+                title="Accredited Certifications" 
+                subtitle="Industry Credentials" 
+                accent={mode === 'web' ? 'blue' : mode === 'network' ? 'red' : 'green'} 
+              />
+              <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base mt-2">
+                Recognized cybersecurity certifications covering Ethical Hacking, Penetration Testing, OSINT, and Network Defense.
+              </p>
             </div>
 
-            {/* Uniform Certificate Grid */}
+            {/* Uniform Certificate Grid - All 10 accredited certificates */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              {certificatesList.slice(0, 6).map((cert, idx) => (
+              {certificatesList.map((cert, idx) => (
                 <CertificateCard
                   key={cert.id}
                   cert={cert}
@@ -449,16 +410,6 @@ const Home = () => {
                 />
               ))}
             </div>
-
-            {certificatesList.length > 6 && (
-              <div className="mt-12 text-center">
-                <Link to="/portfolio">
-                  <button className="px-8 py-3.5 glass border border-white/20 hover:border-white/40 text-white font-mono text-sm rounded-xl transition-all hover:bg-white/5 cursor-pointer">
-                    Explore All {certificatesList.length} Professional Certificates →
-                  </button>
-                </Link>
-              </div>
-            )}
           </div>
         </section>
 
@@ -488,12 +439,6 @@ const Home = () => {
                 <FileText className="w-5 h-5 text-gray-300" />
                 Download Resume (PDF)
               </a>
-              <Link 
-                to="/portfolio" 
-                className="px-8 py-4 glass border border-white/20 font-bold rounded-xl text-white hover:bg-white/5 transition-all cursor-pointer"
-              >
-                Explore Archive
-              </Link>
             </div>
           </div>
         </section>
